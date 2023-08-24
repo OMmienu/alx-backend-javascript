@@ -60,5 +60,3 @@ The project includes the following configuration files:
 + `babel.config.js`: Configuration file for Babel.
 + `.eslintrc.js`: Configuration file for ESLint.
 Make sure to run `npm install` from the terminal in your project folder to install all the necessary project dependencies.
-
-Author
