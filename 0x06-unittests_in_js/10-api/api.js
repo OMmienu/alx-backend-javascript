@@ -22,5 +22,11 @@ app.get('/available_payments', (req, res) => {
       credit_cards: true,
       paypal: false,
     },
+  });
+});
+
+app.post('/login', (req, res) => {
+  res.send(`Welcome ${req.body.userName}`);
+});
 
 module.exports = app;
