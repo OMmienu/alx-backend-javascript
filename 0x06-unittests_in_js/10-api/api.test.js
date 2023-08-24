@@ -32,4 +32,42 @@ describe('API', () => {
       });
     });
   });
+
+  describe('Payment Page', () => {
+    it('should return the avaialble payment methods', (done) => {
+      request.get(
+        'http://localhost:7865/available_payments',
+        (err, res, body) => {
+          expect(res.statusCode).to.equal(200);
+          expect(JSON.parse(body)).to.deep.equal({
+            payment_methods: {
+              credit_cards: true,
+              paypal: false,
+            },
+          });
+          done();
+        },
+      );
+    });
+  });
+
+  describe('Login Page', () => {
+    it('should return the correct status code when the POST params are valid', (done) => {
+      data = { userName: 'Betty' };
+      request.post(
+        {
+          url: 'http://localhost:7865/login',
+          headers: { 'Content-Type': 'application/json' },
+          json: true,
+          body: data,
+        },
+        (err, res, body) => {
+          console.log(body);
+          expect(res.statusCode).to.equal(200);
+          expect(body).to.equal(`Welcome ${data.userName}`);
+          done();
+        },
+      );
+    });
+  });
 });
