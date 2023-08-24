@@ -1,9 +1,8 @@
 const express = require('express');
-const app = express();
-const port = 7865;
 
-app.listen(port, () => {
-  console.log(`API available on localhost port ${port}`);
+const app = express();
+app.listen(7865, () => {
+  console.log('API available on localhost port 7865');
 });
 
 app.get('/', (req, res) => {
@@ -15,4 +14,3 @@ app.get('/cart/:id([0-9]+)', (req, res) => {
 });
 
 module.exports = app;
-
